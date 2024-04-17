@@ -7,16 +7,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import {  useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-
+import { BG_IMAGE,USER_AVATAR } from "../utils/constants";
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(true); //true->signUp // false -> set signIn
   const [errorMessage, setErrorMessage] = useState(null);
 
   const dispatch=useDispatch();
-  const navigate=useNavigate();
 
   const name=useRef(null);
   const email = useRef(null);
@@ -49,7 +47,7 @@ const Login = () => {
           // Signed up
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/108017771?v=4"
+            displayName: name.current.value, photoURL: USER_AVATAR
           }).then(() => {
             // Profile updated!
             const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -62,7 +60,7 @@ const Login = () => {
               })
             );
 
-            navigate("/browse")
+            
             
           }).catch((error) => {
             // An error occurred
@@ -88,7 +86,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse")
+          
           // console.log(user);
           
         })
@@ -104,10 +102,9 @@ const Login = () => {
       <Header />
       <div className="absolute ">
         <img
-          className="md:w-screen h-screen object-cover"
-          class="concord-img vlv-creative"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/c1366fb4-3292-4428-9639-b73f25539794/3417bf9a-0323-4480-84ee-e1cb2ff0966b/IN-en-20240408-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-          srcset="https://assets.nflxext.com/ffe/siteui/vlv3/c1366fb4-3292-4428-9639-b73f25539794/3417bf9a-0323-4480-84ee-e1cb2ff0966b/IN-en-20240408-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/c1366fb4-3292-4428-9639-b73f25539794/3417bf9a-0323-4480-84ee-e1cb2ff0966b/IN-en-20240408-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/c1366fb4-3292-4428-9639-b73f25539794/3417bf9a-0323-4480-84ee-e1cb2ff0966b/IN-en-20240408-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w"
+          className="w-screen min-h-screen object-cover"
+          
+          src={BG_IMAGE}
           alt="backgroundImg"
         />
       </div>
