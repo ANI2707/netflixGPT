@@ -19,6 +19,17 @@
 - Unsubscribed to the onAuthStateChnaged callback
 - Added hardcoded values to the constants file
 - Register TMDB API and create an app and playing movies from api
+- Get Data from TMDB Now Playing movies list API
+- custom Hook for now playing movies
+- create movieSlice
+- Update store with movies data
+- Planning for mainContainer and secondary container
+- fetch data for trialer video
+- update store with trialer video
+- Embedded the youtube video and make it autoplay and mute
+- tailwind classes to make main container look awesome
+- Build secondary container
+
 
 
 
