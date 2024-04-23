@@ -31,6 +31,9 @@
 - Build secondary container
 - movie list
 - tmdb image cdn url
+- UsePopularMovies Custom hook
+- GPT Search Feature
+
 
 
 
