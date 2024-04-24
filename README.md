@@ -32,8 +32,9 @@
 - movie list
 - tmdb image cdn url
 - UsePopularMovies Custom hook
-- GPT Search Feature
-
+- GPT Search Page
+- GPT Search bar
+- {BONUS} Multi-language feature in our App
 
 
 
