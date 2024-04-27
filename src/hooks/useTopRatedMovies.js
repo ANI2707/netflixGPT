@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import {   addTopRatedMovies } from "../utils/moviesSlice";
 import { useEffect } from "react";
@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const useTopRatedMovies = () => {
   //Fetch data from TMDB API and update store
   const dispatch = useDispatch();
-
+  const TopRatedMovies=useSelector(state=>state.movies.TopRatedMovies)
   const getTopRatedMovies = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
@@ -19,7 +19,7 @@ const useTopRatedMovies = () => {
     dispatch(addTopRatedMovies(json.results));
   };
   useEffect(() => {
-    getTopRatedMovies();
+    !TopRatedMovies && getTopRatedMovies();
   }, []);
 };
 
