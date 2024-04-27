@@ -13,7 +13,7 @@ const GptMovieSuggestions = () => {
 
    
   return (
-    <div className='p-4 m-4 bg-black text-white bg-opacity-90'>
+    <div className='md:p-4 md:m-4 bg-black text-white bg-opacity-90'>
       <div>
         
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
